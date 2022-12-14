@@ -1,0 +1,74 @@
+<div class="sam-banner">
+  <div
+    class="sam-banner__header"
+    [class.sam-banner__header--expanded]="showDetail"
+  >
+    <div class="sam-banner__header-inner">
+      <div class="grid-col-auto">
+        <img
+          title="An official website of the United States Government"
+          class="sam-banner__header-flag"
+          src="assets/img/us_flag_small.png"
+          alt="US flag"
+        />
+      </div>
+      <div class="grid-col-fill tablet:grid-col-auto">
+        <p class="sam-banner__header-text">
+          An official website of the United States government
+        </p>
+        <p class="sam-banner__header-action">Here's how you know</p>
+      </div>
+      <button
+        class="sam-banner__button"
+        (click)="toggleDetails()"
+        (blur)="closeDetail()"
+        [attr.aria-expanded]="showDetail"
+        aria-controls="gov-banner"
+      >
+        <span class="sam-banner__button-text">Here's how you know</span>
+      </button>
+      <div class="sam-banner__header-description">
+        <em>{{ description }}</em>
+      </div>
+    </div>
+  </div>
+  <div class="sam-banner__description" *ngIf="description">
+    <em>{{ description }}</em>
+  </div>
+  <div class="sam-banner__content" id="gov-banner" [hidden]="!showDetail">
+    <div class="grid-row grid-gap-lg">
+      <div class="sam-banner__guidance tablet:grid-col-6">
+        <div
+          class="sam-banner__icon sam-banner__icon--blue sam-media-block__img"
+        >
+          <span class="fa fa-bank" style="margin-left: 2px;"></span>
+        </div>
+        <div class="sam-media-block__body">
+          <p>
+            <strong>The .gov means it’s official.</strong>
+            <br />
+            Federal government websites often end in .gov or .mil. Before
+            sharing sensitive information, make sure you’re on a federal
+            government site.
+          </p>
+        </div>
+      </div>
+      <div class="sam-banner__guidance tablet:grid-col-6">
+        <div
+          class="sam-banner__icon sam-banner__icon--green sam-media-block__img"
+        >
+          <span class="fa fa-lock fa-lg"></span>
+        </div>
+        <div class="sam-media-block__body">
+          <p>
+            <strong>The site is secure.</strong>
+            <br />
+            The <strong>https://</strong> ensures that you are connecting to the
+            official website and that any information you provide is encrypted
+            and transmitted securely.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<sam-label-wrapper
+  [label]="label"
+  [name]="id ? id : name"
+  [hint]="hint"
+  [errorMessage]="errorMessage"
+  [showFullHint]="showFullHint"
+  [required]="required">
+  <input
+    type="text"
+    [ngModel]="value"
+    [attr.title]="title ? title : undefined"
+    [attr.id]="id ? id : name"
+    [attr.maxlength]="maxlength ? maxlength : 524288"
+    [attr.placeholder]="placeholder"
+    [disabled]="disabled"
+    (focus)="focusEvent.next({type: 'focus', event: $event})"
+    (blur)="focusEvent.next({type: 'blur', event: $event})"
+    (change)="changeEvent.next({type: 'change', event: $event})"
+    (input)="changeEvent.next({type: 'input', event: $event})">
+</sam-label-wrapper>

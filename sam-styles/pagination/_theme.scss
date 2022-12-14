@@ -1,0 +1,9 @@
+@mixin sam-pagination-theme($theme) {
+  $primary: map-get($map: $theme, $key: primary);
+}
+
+@mixin sam-pagination-typography($config) {
+  .sam.pagination {
+    font-size: sam-font-size($config, small);
+  }
+}
